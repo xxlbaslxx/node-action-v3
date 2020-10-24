@@ -1,24 +1,24 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: Node.js CI ##ชื่อ work flows
 
-on:
+on: ## ถูกเรียกทำงานก็ต่อเมื่อ เกิดอีเว้นท์ต่อไปนี้กับ repo
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
 
-jobs:
+jobs: ## จะ build ได้ก็ต่อเมื่อผ่านขั้นตอนต่อไปนี้
   build:
 
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x]
+        node-version: [12.x, 14.x]
 
-    steps:
+    steps: ##สิ่งที่ต้องทำมีอะไรบ้าง
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
